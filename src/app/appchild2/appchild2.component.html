@@ -1,0 +1,77 @@
+<div class="appchild2">
+    <h3>appchild2 - IfElse, Switch, For</h3>
+    <button (click)="toggle = !toggle">Toggle</button>
+
+    
+    <!-- Styles Angular -->
+    <div [ngStyle]="{
+        width: '200px',
+        height: '200px',
+        borderRadius: '5px',
+        border: '1px solid #ccc',
+        background: toggle ? 'red' : 'blue'
+    }">
+    </div>
+    
+
+    <!-- Classes Angular -->
+    <p [ngClass]="{
+        red: toggle,
+        blue: !toggle
+    }">Lorem ipsum dolor</p>
+
+    <p 
+        [class.red]="toggle"
+        [class.blue]="!toggle"
+    >Lorem ipsum dolor</p>
+
+
+    <!-- Применение If Then ELse -->
+    <div *ngIf="toggle; then redP else blueP"></div>
+    <ng-template #redP> <p class="red">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> </ng-template>
+    <ng-template #blueP> <p class="blue">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> </ng-template>
+    <ng-template #ordinaryP> <p class="blue">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> </ng-template>
+
+    <br>
+
+    <!-- NgSwitch -->
+    <ng-container [ngSwitch]="toggle">
+        <ng-template *ngSwitchCase="true">True</ng-template>
+        <ng-template *ngSwitchCase="false">False</ng-template>
+        <ng-template *ngSwitchDefault>Lorem, ipsum.</ng-template>
+    </ng-container>
+
+    <div [ngSwitch]="toggle">
+        <p *ngSwitchCase="true">True</p>
+        <p *ngSwitchCase="false">False</p>
+        <p *ngSwitchDefault>Lorem, ipsum.</p>
+    </div>
+
+    <ul [ngSwitch]="toggle">
+        <li *ngSwitchCase="true">True</li>
+        <li *ngSwitchCase="false">False</li>
+        <li *ngSwitchDefault>Lorem, ipsum.</li>
+    </ul>
+
+
+    <!-- NgFor -->
+    <ul>
+        <li *ngFor="let n of arr; let idx = index">
+            {{idx+1}} <strong>{{n}}</strong>
+        </li>
+    </ul>
+
+    <ul style="list-style: none;">
+        <li *ngFor="let post of objs">
+            <p>{{post.title}}<b>{{post.author}}</b></p>
+            <ul>
+                <li *ngFor="let comm of post.comments">
+                    <div>
+                        <small>{{comm.name}}</small>
+                        <p>{{comm.text}}</p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

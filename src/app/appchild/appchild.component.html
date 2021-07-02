@@ -1,0 +1,15 @@
+<div class="appchild">
+    <p>{{now | date}}</p>
+    <h2>App Child - Events</h2>
+    <p> <strong>{{title}}</strong></p>
+    <p> <strong>{{arr}}</strong></p>
+    <button (click)="onClick()">Click me!!</button>
+    <input 
+    type="text" 
+    (keyup)="onInput($event)"
+    (blur)="onBlur(myInput.value)"
+    #myInput
+    >
+    <input type="text" [(ngModel)]="inputValue">
+    <p> <strong>{{inputValue}}</strong></p>
+</div>  

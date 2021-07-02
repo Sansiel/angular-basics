@@ -1,0 +1,16 @@
+.appchild2{
+    width: 450px;
+    height: auto;
+    border: 5px dashed rgb(184, 54, 54);
+    padding: 1px;
+}
+
+.red{
+    background-color: red;
+    font-size: 1.5rem;
+}
+
+.blue{
+    background-color: blue;
+    font-size: 1rem;
+}
